@@ -1,18 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
-    <title>Document</title>
+    <title>nobr | Meet Strangers</title>
 </head>
-<body>
-    <p class="text-red-400">
-        This is the index page
-    </p>
-    <a href="/legal"> legal </a>
-    <a href="/text-chat"> text </a>
-    <a href="/video-chat"> video </a>
+<body class="h-full">
+    <header class="shadow-sm h-[8%]">
+        <!-- header -->
+          <nav class="container mx-auto w-full flex flex-row p-2 pb-4 m-2 items-center justify-between">
+            <div class="bg-gray-500 w-10 h-10 rounded-sm">
+                <!-- <img src="#" alt="nobr logo" width="40px" height="40px"> -->
+            </div>
+            <div class="bg-gray-500 w-10 h-10 rounded-sm">
+                <!-- <img src="#" alt="nobr logo" width="40px" height="40px"> -->
+            </div>
+          </nav>
+    </header>
+    <main class="flex flex-col h-[80%]">
+        <div class="w-full basis-auto bg-gray-500/10 h-[55%]">
+        </div>
+        <div class="container mx-auto py-8 space-y-16">
+            <div class="text-center">
+                <h1 class="text-4xl font-medium p-2 m-2 px-16">Group Chat For Everyone</h1>
+                <h3 class="text-base font-extralight p-2 m-2 px-16">Make it better to connect to connect with people face to face</h3>
+            </div>
+            <div class="flex flex-row gap-6 justify-center">
+                <div class="w-32 h-14 bg-gray-500 p-4 text-center rounded-e-sm rounded-s-[4px] text-white">
+                    video
+                </div>
+                <div class="w-32 h-14 bg-gray-500 p-4 text-center rounded-s-sm rounded-e-[4px]
+                text-white">
+                    chat
+                </div>
+            </div>
+        </div>
+        <!-- main -->
+    </main>
+    <footer class=" absolute -bottom-2 h-[8%] w-full bg-gray-500">
+        <nav class="h-full flex flex-row justify-between items-center container mx-auto px-4 text-white">
+            <p>&copy; nobr 2023</p>
+            <div class="flex flex-row space-x-2">
+                <div class="w-6 h-6 bg-white rounded-full"></div>
+                <div class="w-6 h-6 bg-white rounded-full"></div>
+                <div class="w-6 h-6 bg-white rounded-full"></div>
+            </div>
+        </nav>
+        <!-- footer -->
+    </footer>
 </body>
 </html>
