@@ -14,6 +14,7 @@ app.set("view engine", "ejs");
 app.use('/css', express.static(path.resolve(__dirname, 'assets/css')));
 app.use('/images', express.static(path.resolve(__dirname, 'assets/images')));
 app.use('/js', express.static(path.resolve(__dirname, 'assets/js')));
+app.use('/font', express.static(path.resolve(__dirname, 'assets/font')));
 
 app.use('/', require('./server/routes/router'));
 
