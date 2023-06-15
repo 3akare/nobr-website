@@ -11,9 +11,11 @@
     <header class="shadow-sm h-[9.5%] w-full fixed">
         <!-- header -->
           <nav class="container mx-auto w-full flex flex-row p-2 pb-4 m-2 items-center justify-between font-light">
+            <a href="/">
                 <div class="bg-gray-500 w-10 h-10 rounded-sm">
                     <!-- <img src="#" alt="nobr logo" width="40px" height="40px"> -->
                 </div>
+            </a>
                 <div class="bg-gray-500 w-10 h-10 rounded-sm lg:hidden">
                     <!-- <img src="#" alt="nobr logo" width="40px" height="40px"> -->
                 </div>
@@ -28,13 +30,13 @@
                 </div>
                 <div class="max-lg:hidden">
                     <div class="flex flex-row items-center gap-6">
-                        <div class="w-32 h-9 bg-gray-500 text-center py-1.5 rounded-e-sm rounded-s-[4px] text-white">
+                        <button onclick="window.location.href='/video-chat'"  class="w-32 h-9 bg-gray-500 text-center py-1.5 rounded-e-sm rounded-s-[4px] text-white">
                             <p class="font-extralight">video</p>
-                        </div>
-                        <div class="w-32 h-9 bg-gray-500 py-1.5 text-center rounded-s-sm rounded-e-[4px]
+                        </button>
+                        <button onclick="window.location.href='/text-chat'" class="w-32 h-9 bg-gray-500 py-1.5 text-center rounded-s-sm rounded-e-[4px]
                         text-white">
                         <p class="font-extralight">chat</p>
-                        </div>
+                        </button>
                     </div>
                 </div>
           </nav>

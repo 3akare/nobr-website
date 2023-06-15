@@ -11,9 +11,11 @@
     <header class="shadow-sm h-[8%]">
         <!-- header -->
           <nav class="container mx-auto w-full flex flex-row p-2 pb-4 m-2 items-center justify-between font-light">
-                <div class="bg-gray-500 w-10 h-10 rounded-sm">
-                    <!-- <img src="#" alt="nobr logo" width="40px" height="40px"> -->
-                </div>
+                <a href="#">
+                    <div class="bg-gray-500 w-10 h-10 rounded-sm">
+                        <!-- <img src="#" alt="nobr logo" width="40px" height="40px"> -->
+                    </div>
+                </a>
                 <div class="bg-gray-500 w-10 h-10 rounded-sm lg:hidden">
                     <!-- <img src="#" alt="nobr logo" width="40px" height="40px"> -->
                 </div>
@@ -28,15 +30,16 @@
                 </div>
                 <div class="max-lg:hidden">
                     <div class="flex flex-row items-center gap-6">
-                        <div class="w-32 h-9 bg-gray-500 text-center py-1.5 rounded-e-sm rounded-s-[4px] text-white">
+                        <button onclick="window.location.href='/video-chat'"  class="w-32 h-9 bg-gray-500 text-center py-1.5 rounded-e-sm rounded-s-[4px] text-white">
                             <p class="font-extralight">video</p>
-                        </div>
-                        <div class="w-32 h-9 bg-gray-500 py-1.5 text-center rounded-s-sm rounded-e-[4px]
+                        </button>
+                        <button onclick="window.location.href='/text-chat'" class="w-32 h-9 bg-gray-500 py-1.5 text-center rounded-s-sm rounded-e-[4px]
                         text-white">
                         <p class="font-extralight">chat</p>
-                        </div>
+                        </button>
                     </div>
                 </div>
+                <!-- todo: create hamburger dropdown effect for tablet and mobile-->
           </nav>
     </header>
     <main class="flex flex-col h-[80%]">
@@ -48,12 +51,12 @@
                 <h3 class="text-base font-extralight p-2 m-2 px-16">Make it better to connect to connect with people face to face</h3>
             </div>
             <div class="flex flex-row gap-6 justify-center">
-                <div class="w-32 h-14 lg:w-40 lg:h-16 lg:p-[18px] lg:text-lg bg-gray-500 p-4 text-center rounded-e-sm rounded-s-[4px] text-white">
+                <button onclick="window.location.href='/video-chat'" class="w-32 h-14 lg:w-40 lg:h-16 lg:p-[18px] lg:text-lg bg-gray-500 p-4 text-center rounded-e-sm rounded-s-[4px] text-white">
                     <p>video</p>
-                </div>
-                <div class="w-32 h-14 lg:w-40 lg:h-16 lg:p-[18px] lg:text-lg bg-gray-500 p-4 text-center rounded-s-sm rounded-e-[4px] text-white">
+                </button>
+                <button onclick="window.location.href='/text-chat'" class="w-32 h-14 lg:w-40 lg:h-16 lg:p-[18px] lg:text-lg bg-gray-500 p-4 text-center rounded-s-sm rounded-e-[4px] text-white">
                     <p>chat</p>
-                </div>
+                </button>
             </div>
         </div>
         <!-- main -->
@@ -62,9 +65,15 @@
         <nav class="h-full flex flex-row justify-between items-center container mx-auto px-4 text-white">
             <p>&copy; nobr 2023</p>
             <div class="flex flex-row space-x-2">
-                <div class="w-6 h-6 bg-white rounded-full"></div>
-                <div class="w-6 h-6 bg-white rounded-full"></div>
-                <div class="w-6 h-6 bg-white rounded-full"></div>
+                <a href="http://" target="_blank" rel="noopener noreferrer">
+                    <div class="w-6 h-6 bg-white rounded-full"></div>
+                </a>
+                <a href="http://" target="_blank" rel="noopener noreferrer">
+                    <div class="w-6 h-6 bg-white rounded-full"></div>
+                </a>
+                <a href="http://" target="_blank" rel="noopener noreferrer">
+                    <div class="w-6 h-6 bg-white rounded-full"></div>
+                </a>
             </div>
         </nav>
         <!-- footer -->
