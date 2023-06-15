@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full">
+<html lang="en" class="h-full dark" id="dark-mode-master">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,19 +23,19 @@
                 <div class="max-lg:hidden text-sm pt-1.5">
                     <div>
                         <ul class="flex flex-row space-x-8">
-                            <li><a href="/legal#about-us">About Us</a></li>
-                            <li><a href="/legal#about-us">Terms & Conditions</a></li>
-                            <li><a href="/legal#about-us">Community Guidlines</a></li>
+                            <li><a class="hover:text-dark-mode-black/70 text-dark-mode-black" href="#">Legal</a></li>
+                            <li><a class="hover:text-dark-mode-black/70 text-dark-mode-black" href="#">Pricing</a></li>
+                            <li><a class="hover:text-dark-mode-black/70 text-dark-mode-black" href="#">Community Guidelines</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="max-lg:hidden">
                     <div class="flex flex-row items-center gap-6">
-                        <button onclick="window.location.href='/video-chat'"  class="w-32 h-9 bg-gray-500 text-center py-1.5 rounded-e-sm rounded-s-[4px] text-white">
+                        <button onclick="window.location.href='/video-chat'"  class="w-32 h-9 text-center py-1.5 rounded-e-sm rounded-s-[4px] text-secondary-white bg-primary-green hover:bg-primary-green/80">
                             <p class="font-extralight">video</p>
                         </button>
-                        <button onclick="window.location.href='/text-chat'" class="w-32 h-9 bg-gray-500 py-1.5 text-center rounded-s-sm rounded-e-[4px]
-                        text-white">
+                        <button onclick="window.location.href='/text-chat'" class="w-32 h-9 py-1.5 text-center rounded-s-sm rounded-e-[4px]
+                        text-secondary-white bg-primary-purple hover:bg-primary-purple/80">
                         <p class="font-extralight">chat</p>
                         </button>
                     </div>
@@ -49,37 +49,38 @@
         <div class="container mx-auto py-8 space-y-10">
             <div class="text-center">
                 <h1 class="text-4xl font-medium p-2 m-2 px-16 lg:text-5xl">Group Chat For Everyone</h1>
-                <h3 class="text-base font-extralight p-2 m-2 px-16">Make it better to connect to connect with people face to face</h3>
+                <h3 class="text-base font-extralight p-2 m-2 px-16 text-slate-700">Make it better to connect to connect with people face to face</h3>
             </div>
             <div class="flex flex-row gap-6 justify-center relative">
-                <button onclick="window.location.href='/video-chat'" class="w-32 h-14 lg:w-40 lg:h-16 lg:p-[18px] lg:text-lg bg-gray-500 p-4 text-center rounded-e-sm rounded-s-[4px] text-white">
+                <button onclick="window.location.href='/video-chat'" class="w-32 h-14 lg:w-40 lg:h-16 lg:p-[18px] lg:text-lg p-4 text-center rounded-e-sm rounded-s-[4px] text-secondary-white bg-primary-green hover:bg-primary-green/80">
                     <p>video</p>
                 </button>
-                <button onclick="window.location.href='/text-chat'" class="w-32 h-14 lg:w-40 lg:h-16 lg:p-[18px] lg:text-lg bg-gray-500 p-4 text-center rounded-s-sm rounded-e-[4px] text-white">
+                <button onclick="window.location.href='/text-chat'" class="w-32 h-14 lg:w-40 lg:h-16 lg:p-[18px] lg:text-lg p-4 text-center rounded-s-sm rounded-e-[4px] text-secondary-white bg-primary-purple hover:bg-primary-purple/80">
                     <p>chat</p>
                 </button>
             </div>
         </div>
         <!-- main -->
     </main>
-    <footer class=" absolute -bottom-2 h-[8%] w-full bg-gray-500 font-light">
-        <button class="absolute bg-slate-500 rounded-full w-12 h-12 left-2 bottom-20 lg:left-12">
+    <footer class=" absolute -bottom-2 h-[8%] w-full bg-dark-mode-black font-light">
+        <button id="dark-mode-toggle" class="absolute border-2 rounded-full w-12 h-12 left-2 bottom-[4.25rem] shadow-sm bg-secondary-white lg:left-12">
         </button>
-        <nav class="h-full flex flex-row justify-between items-center container mx-auto px-4 text-white">
+        <nav class="h-full flex flex-row justify-between items-center container mx-auto px-4 text-secondary-white">
             <p>&copy; nobr 2023</p>
             <div class="flex flex-row space-x-2">
-                <a href="http://" target="_blank" rel="noopener noreferrer">
+                <a href="#" target="_blank" rel="noopener noreferrer">
                     <div class="w-6 h-6 bg-white rounded-full"></div>
                 </a>
-                <a href="http://" target="_blank" rel="noopener noreferrer">
+                <a href="#" target="_blank" rel="noopener noreferrer">
                     <div class="w-6 h-6 bg-white rounded-full"></div>
                 </a>
-                <a href="http://" target="_blank" rel="noopener noreferrer">
+                <a href="#" target="_blank" rel="noopener noreferrer">
                     <div class="w-6 h-6 bg-white rounded-full"></div>
                 </a>
             </div>
         </nav>
         <!-- footer -->
     </footer>
+    <script type="module" async src="/js/main.js"></script>
 </body>
 </html>
