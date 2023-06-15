@@ -10,13 +10,33 @@
 <body class="h-full">
     <header class="shadow-sm h-[8%]">
         <!-- header -->
-          <nav class="container mx-auto w-full flex flex-row p-2 pb-4 m-2 items-center justify-between">
-            <div class="bg-gray-500 w-10 h-10 rounded-sm">
-                <!-- <img src="#" alt="nobr logo" width="40px" height="40px"> -->
-            </div>
-            <div class="bg-gray-500 w-10 h-10 rounded-sm">
-                <!-- <img src="#" alt="nobr logo" width="40px" height="40px"> -->
-            </div>
+          <nav class="container mx-auto w-full flex flex-row p-2 pb-4 m-2 items-center justify-between font-light">
+                <div class="bg-gray-500 w-10 h-10 rounded-sm">
+                    <!-- <img src="#" alt="nobr logo" width="40px" height="40px"> -->
+                </div>
+                <div class="bg-gray-500 w-10 h-10 rounded-sm lg:hidden">
+                    <!-- <img src="#" alt="nobr logo" width="40px" height="40px"> -->
+                </div>
+                <div class="max-lg:hidden text-sm pt-1.5">
+                    <div>
+                        <ul class="flex flex-row space-x-8">
+                            <li><a href="/legal#about-us">About Us</a></li>
+                            <li><a href="/legal#about-us">Terms & Conditions</a></li>
+                            <li><a href="/legal#about-us">Community Guidlines</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="max-lg:hidden">
+                    <div class="flex flex-row items-center gap-6">
+                        <div class="w-32 h-9 bg-gray-500 text-center py-1.5 rounded-e-sm rounded-s-[4px] text-white">
+                            <p class="font-extralight">video</p>
+                        </div>
+                        <div class="w-32 h-9 bg-gray-500 py-1.5 text-center rounded-s-sm rounded-e-[4px]
+                        text-white">
+                        <p class="font-extralight">chat</p>
+                        </div>
+                    </div>
+                </div>
           </nav>
     </header>
     <main class="flex flex-col h-[80%]">
@@ -24,22 +44,21 @@
         </div>
         <div class="container mx-auto py-8 space-y-10">
             <div class="text-center">
-                <h1 class="text-4xl font-medium p-2 m-2 px-16">Group Chat For Everyone</h1>
+                <h1 class="text-4xl font-medium p-2 m-2 px-16 lg:text-5xl">Group Chat For Everyone</h1>
                 <h3 class="text-base font-extralight p-2 m-2 px-16">Make it better to connect to connect with people face to face</h3>
             </div>
             <div class="flex flex-row gap-6 justify-center">
-                <div class="w-32 h-14 bg-gray-500 p-4 text-center rounded-e-sm rounded-s-[4px] text-white">
-                    video
+                <div class="w-32 h-14 lg:w-40 lg:h-16 lg:p-[18px] lg:text-lg bg-gray-500 p-4 text-center rounded-e-sm rounded-s-[4px] text-white">
+                    <p>video</p>
                 </div>
-                <div class="w-32 h-14 bg-gray-500 p-4 text-center rounded-s-sm rounded-e-[4px]
-                text-white">
-                    chat
+                <div class="w-32 h-14 lg:w-40 lg:h-16 lg:p-[18px] lg:text-lg bg-gray-500 p-4 text-center rounded-s-sm rounded-e-[4px] text-white">
+                    <p>chat</p>
                 </div>
             </div>
         </div>
         <!-- main -->
     </main>
-    <footer class=" absolute -bottom-2 h-[8%] w-full bg-gray-500">
+    <footer class=" absolute -bottom-2 h-[8%] w-full bg-gray-500 font-light">
         <nav class="h-full flex flex-row justify-between items-center container mx-auto px-4 text-white">
             <p>&copy; nobr 2023</p>
             <div class="flex flex-row space-x-2">
