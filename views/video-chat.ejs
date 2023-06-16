@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full w-full">
+<html lang="en" class="h-full w-full" id="dark-mode-master">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/font/WEB/css/satoshi.css">
     <title>nobr | Meet Strangers</title>
 </head>
-<body class="h-full">
+<body class="h-full dark:bg-dark-mode-black">
     <header class="shadow-sm h-[8%] w-full fixed">
         <!-- header -->
           <nav class="container mx-auto w-full flex flex-row p-2 pb-4 m-2 items-center justify-between">
@@ -17,14 +17,14 @@
                     <!-- <img src="#" alt="nobr logo" width="40px" height="40px"> -->
                 </div>
             </a>
-            <div class="w-32 h-9 bg-gray-500 py-1.5 text-center rounded-s-sm rounded-e-[4px]
-            text-white max-lg:hidden">
+            <div class="w-32 h-9 py-1.5 text-center rounded-sm
+            text-white max-lg:hidden bg-primary-purple hover:bg-primary-purple/80 dark:bg-dark-mode-black dark:border-primary-purple dark:border-[1px] dark:hover:text-primary-purple box-border cursor-pointer">
             <p class="font-extralight">chat</p>
             </div>
           </nav>
     </header>
     <main class="container mx-auto flex flex-col p-2 space-y-2 h-full">
-        <article class="bg-gray-500 w-fit h-fit mt-[70px] p-2 rounded-sm text-white">
+        <article class="bg-primary-green w-fit h-fit mt-[70px] p-2 rounded-sm text-white">
             <h1 class="text-sm">
                 You are connected
             </h1>
@@ -77,6 +77,8 @@
     </main>
     <!-- todo: Make this a dark mode toggle button -->
     <footer class="absolute -bottom-2 h-[8%] w-full bg-gray-500 hidden">
+        <button id="dark-mode-toggle" class="absolute bg-slate-500 rounded-full w-12 h-12 left-2 bottom-20 lg:left-12">
+        </button>
         <nav class="h-full flex flex-row justify-between items-center container mx-auto px-4 text-white">
             <p>&copy; nobr 2023</p>
             <div class="flex flex-row space-x-2">
@@ -87,6 +89,7 @@
         </nav>
         <!-- footer -->
     </footer>
+    <script type="module" async src="/js/main.js"></script>
     <script>
         function adjustTextareaHeight(event) {
           const textarea = event.target;
