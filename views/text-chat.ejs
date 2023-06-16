@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/font/WEB/css/satoshi.css">
     <title>nobr | Meet Strangers</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js" integrity="sha512-xbQU0+iHqhVt7VIXi6vBJKPh3IQBF5B84sSHdjKiSccyX/1ZI7Vnkt2/8y8uruj63/DVmCxfUNohPNruthTEQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body class="h-full dark:bg-dark-mode-black">
     <header class="shadow-sm h-[8%] w-full fixed z-10">
@@ -29,8 +30,8 @@
             </h1>
         </article>
         <section class="p-4">
-            <section class="h-full relative max-lg:text-sm" id="text-message-area">
-                <div class="flex flex-row justify-end">
+            <section id="chat-text-area" class="h-full relative max-lg:text-sm" id="text-message-area">
+                <!-- <div class="flex flex-row justify-end">
                     <div class="text-right block h-fit p-2 w-fit max-w-[80%] bg-primary-purple mb-2 rounded-sm text-secondary-white font-thin">
                         Hi Stranger
                     </div>
@@ -39,23 +40,19 @@
                     <div class="text-left block h-fit p-2 w-fit max-w-[80%] bg-slate-500/100 mb-2 rounded-sm text-secondary-white font-thin">
                         Bye Stranger
                     </div>
-                </div> 
-                <div class="flex flex-row justify-start">
-                    <div class="text-left block h-fit p-2 w-fit max-w-[80%] bg-slate-500/100 mb-2 rounded-sm text-secondary-white font-thin">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste praesentium dolore voluptatem optio pariatur ullam ex impedit vero aut voluptate sint, assumenda alias facilis maiores saepe! Provident ut sed expedita totam libero dignissimos consequuntur, nobis illo porro iste maiores dolores inventore ea ipsam quam architecto minima quidem aspernatur reprehenderit facere incidunt accusamus autem ipsa! Recusandae labore nisi, nemo autem cupiditate quisquam aliquam dolore, tempora earum consequatur, explicabo deleniti dolores quod.
-                    </div>
-                </div> 
-                <div class="flex flex-row justify-end">
-                    <div class="text-right block h-fit p-2 w-fit max-w-[80%] bg-primary-purple mb-2 rounded-sm text-secondary-white font-thin">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores corrupti minus totam cumque iusto vitae? Commodi voluptate, doloribus molestiae inventore, illum hic reiciendis quisquam suscipit tenetur magni alias soluta architecto quae odio. Quos non incidunt esse maxime laboriosam sunt ad cumque maiores quibusdam, voluptatem eos rerum distinctio nam ducimus placeat corporis eveniet enim cupiditate, inventore obcaecati dolor minima dolore blanditiis. Quam quisquam, qui ipsam perspiciatis nostrum ea doloremque suscipit nesciunt officia laboriosam et molestias rerum harum porro necessitatibus tempora accusamus? Explicabo, provident ducimus? Libero, sint. Earum iste inventore repudiandae ut nisi autem atque nulla nostrum omnis reiciendis, quibusdam saepe aspernatur iure, impedit, eum accusamus quam. Perferendis, blanditiis? Asperiores dolorum itaque deleniti consequuntur reiciendis minus numquam voluptas ullam ipsa, eaque saepe veniam aliquam reprehenderit, sit eos, expedita officiis cumque. Iure, quo, maxime doloribus placeat dolorum aliquid corporis deleniti quam sit necessitatibus non omnis animi illo obcaecati nulla, neque laborum tenetur ullam delectus ipsam quas tempora molestias totam hic! Suscipit, corporis enim nesciunt a saepe ipsam molestiae aperiam iste temporibus sit architecto. Cum, earum et. Beatae vel blanditiis nihil rerum consectetur natus officia similique aliquid magnam sequi, deserunt dolorem, temporibus distinctio accusantium reiciendis accusamus a veniam iusto eum eveniet nesciunt! Dolorem voluptate modi praesentium odio impedit earum. Earum nihil rem officiis explicabo minima quae id! Id architecto modi, at, culpa consequuntur ducimus rerum inventore eligendi accusantium est optio deleniti atque repellendus alias dolorum suscipit voluptate odio aut, blanditiis ea itaque sapiente. Quam, qui modi labore molestiae accusamus quaerat nesciunt asperiores eaque cumque beatae quis, repellendus sint? Necessitatibus harum ab magni culpa, totam suscipit debitis magnam distinctio eveniet at fugit omnis reprehenderit mollitia officia consequatur rerum aspernatur quaerat excepturi, voluptates incidunt corporis. Porro, inventore natus sunt deleniti non distinctio cumque cupiditate modi quia ut autem tempora excepturi harum maiores, eius, vitae voluptas praesentium?
-                    </div>
-                </div>
+                </div> -->
             </section>
             <section class="w-full">
                 <!-- todos: Add buttons -->
                 <form>
                     <textarea id="chat" rows="1" class="container mx-auto p-4 mb-[20px] h-[60px] w-[80%] text-sm text-gray-900 rounded-lg border border-gray-300 outline-none resize-none box-border fixed bottom-2 left-0 right-0 shadow-md dark:bg-dark-mode-black dark:text-secondary-white" autofocus placeholder="Your message..." oninput="adjustTextareaHeight(event)"></textarea> 
                 </form>
+                <div id="user-1">
+
+                </div>
+                <div id="user-2">
+
+                </div>
             </section>
         </section>
         
@@ -90,5 +87,6 @@
           textarea.style.height = `${rows * lineHeight + paddingTop + paddingBottom}px`;
         }
       </script>
+       <script type="module" src="/js/index.js"></script>
 </body>
 </html>
