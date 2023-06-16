@@ -29,7 +29,7 @@ window.addEventListener('load', () => {
 });
 
 const textMessageArea = document.querySelector('#text-message-area');
-textMessageArea.insertAdjacentHTML('beforeend',`<div class="text-left block h-fit p-2 w-fit max-w-[80%] bg-slate-500/100 mb-2 rounded-sm text-secondary-white font-thin">
+textMessageArea.insertAdjacentHTML('beforeend', `<div class="text-left block h-fit p-2 w-fit max-w-[80%] bg-slate-500/100 mb-2 rounded-sm text-secondary-white font-thin">
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste praesentium dolore voluptatem optio pariatur ullam ex impedit vero aut voluptate sint, assumenda alias facilis maiores saepe! Provident ut sed expedita totam libero dignissimos consequuntur, nobis illo porro iste maiores dolores inventore ea ipsam quam architecto minima quidem aspernatur reprehenderit facere incidunt accusamus autem ipsa! Recusandae labore nisi, nemo autem cupiditate quisquam aliquam dolore, tempora earum consequatur, explicabo deleniti dolores quod.
 </div>
 </div>
