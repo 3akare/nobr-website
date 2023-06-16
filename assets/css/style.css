@@ -771,16 +771,16 @@ html{
   width: 2rem;
 }
 
+.w-\[100px\] {
+  width: 100px;
+}
+
 .w-\[80\%\] {
   width: 80%;
 }
 
 .w-\[85\%\] {
   width: 85%;
-}
-
-.w-\[95px\] {
-  width: 95px;
 }
 
 .w-fit {
@@ -1174,11 +1174,6 @@ html{
     --tw-space-x-reverse: 0;
     margin-right: calc(1rem * var(--tw-space-x-reverse));
     margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
-  }
-
-  .max-lg\:bg-gray-500 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(107 114 128 / var(--tw-bg-opacity));
   }
 
   .max-lg\:text-sm {

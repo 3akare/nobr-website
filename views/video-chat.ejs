@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/font/WEB/css/satoshi.css">
     <title>nobr | Meet Strangers</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js" integrity="sha512-xbQU0+iHqhVt7VIXi6vBJKPh3IQBF5B84sSHdjKiSccyX/1ZI7Vnkt2/8y8uruj63/DVmCxfUNohPNruthTEQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body class="h-full dark:bg-dark-mode-black">
     <header class="shadow-sm h-[8%] w-full fixed">
@@ -30,15 +31,17 @@
             </h1>
         </article>
         <section class="p-4 w-full h-[90%] flex flex-col space-y-2 lg:flex-row lg:space-y-0 lg:space-x-1">
-            <section class="relative w-full h-2/3 lg:h-[85%] lg:flex lg:flex-col lg:space-y-1 max-lg:bg-gray-500">
-                <div class="max-lg:hidden bg-gray-500 h-full w-full">
-
+            <section class="relative w-full h-2/3 lg:h-[85%] lg:flex lg:flex-col lg:space-y-1">
+                <!-- todo: <div id="user-1" class="max-lg:hidden bg-gray-500 h-full w-full">
                 </div>
-                <div class="max-lg:hidden bg-gray-500 h-full w-full">
-
-                </div>
-                <div class="absolute w-[95px] bg-red-200 h-[110px] rounded-sm m-1 right-0 lg:hidden">
-                </div>
+                <div id="user-2" class="max-lg:hidden bg-gray-500 h-full w-full">
+                </div> -->
+                <!-- mobile -->
+                <video id="user-2" class=" lg:hidden absolute bg-gray-500 h-full w-full" autoplay="autoplay" playsinnline="playsinnline">
+                </video>
+                <video id="user-1" class="absolute w-[100px] bg-red-200 h-[110px] rounded-sm m-1 right-0 lg:hidden" autoplay="autoplay" playsinnline="playsinnline">
+                </video>
+                <!-- mobile -->
             </section>
             <section class="w-full h-1/3 lg:h-[85%] bg-gray-500 lg:hidden">
                  <section class="h-full relative overflow-auto p-2 max-lg:text-sm">
@@ -105,5 +108,6 @@
           textarea.style.height = `${rows * lineHeight + paddingTop + paddingBottom}px`;
         }
       </script>
+       <script type="module" src="/js/index.js"></script>
 </body>
 </html>
