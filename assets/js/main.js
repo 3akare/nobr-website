@@ -3,8 +3,10 @@ const htmlBody = document.querySelector('#dark-mode-master');
 
 darkModeToggle.addEventListener('click', () => {
   if (htmlBody.classList.contains('dark')) {
+    darkModeToggle.style.backgroundImage = 'url("../images/moon-svgrepo-com.svg")';
     localStorage.theme = 'light';
   } else {
+    darkModeToggle.style.backgroundImage = 'url("../images/sun-svgrepo-com.svg")';
     localStorage.theme = 'dark';
   }
   if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -14,10 +16,14 @@ darkModeToggle.addEventListener('click', () => {
   }
 });
 
+darkModeToggle.style.backgroundSize = '30px 30px';
+
 window.addEventListener('load', () => {
   if (localStorage.theme === 'dark') {
+    darkModeToggle.style.backgroundImage = 'url("../images/sun-svgrepo-com.svg")';
     htmlBody.classList.add('dark');
   } else {
+    darkModeToggle.style.backgroundImage = 'url("../images/moon-svgrepo-com.svg")';
     htmlBody.classList.remove('dark');
   }
 });
