@@ -1,93 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full dark" id="dark-mode-master">
+<html lang="en" class="h-full">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/font/WEB/css/satoshi.css">
     <title>nobr | Meet Strangers</title>
 </head>
-<body class="h-full dark:bg-dark-mode-black">
-    <header class="shadow-sm h-[8%]">
-        <!-- header -->
-          <nav class="container mx-auto w-full flex flex-row p-2 pb-4 m-2 items-center justify-between font-light">
-                <a href="#">
-                    <div class="w-10 h-10 rounded-sm dark:bg-[url(/images/Screenshot%202023-06-18%20at%2016.00.46.png)] bg-contain bg-center bg-[url(/images/Screenshot%202023-06-18%20at%2016.01.05.png)]">
-                        <!-- <img src="#" alt="nobr logo" width="40px" height="40px"> -->
-                    </div>
-                </a>
-                <div class="w-10 h-10 rounded-sm lg:hidden bg-contain bg-center bg-[url(/images/light.svg)] dark:bg-[url(/images/hamburger-menu-svgrepo-com.svg)]">
-                    <!-- <img src="#" alt="nobr logo" width="40px" height="40px"> -->
-                </div>
-                <div class="max-lg:hidden text-sm pt-1.5">
-                    <div>
-                        <ul class="flex flex-row space-x-8">
-                            <li><a class="hover:text-dark-mode-black/70 text-dark-mode-black dark:text-secondary-white dark:hover:text-secondary-white/70" href="/legal">Legal</a></li>
-                            <li><a class="hover:text-dark-mode-black/70 text-dark-mode-black dark:text-secondary-white dark:hover:text-secondary-white/70" href="#">Pricing</a></li>
-                            <li><a class="hover:text-dark-mode-black/70 text-dark-mode-black dark:text-secondary-white dark:hover:text-secondary-white/70" href="#">Community Guidelines</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="max-lg:hidden">
-                    <div class="flex flex-row items-center gap-6">
-                        <button onclick="window.location.href='/video-chat'"  class="w-32 h-9 text-center py-1.5 rounded-e-sm rounded-s-[4px] text-secondary-white bg-primary-green hover:bg-primary-green/80 dark:bg-dark-mode-black dark:border-primary-green dark:border-[1px] dark:hover:text-primary-green box-border">
-                            <p class="font-extralight">video</p>
-                        </button>
-                        <button onclick="window.location.href='/text-chat'" class="w-32 h-9 py-1.5 text-center rounded-s-sm rounded-e-[4px]
-                        text-secondary-white bg-primary-purple hover:bg-primary-purple/80 dark:bg-dark-mode-black dark:border-primary-purple dark:border-[1px] dark:hover:text-primary-purple box-border">
-                        <p class="font-extralight">chat</p>
-                        </button>
-                    </div>
-                </div>
-                <!-- todo: create hamburger dropdown effect for tablet and mobile-->
-          </nav>
+<body class="h-full">
+    <header class="w-full shadow-sm">
+        <%- include('./components/header', {variant: true}); %>
     </header>
     <main class="flex flex-col h-[80%]">
-        <div class="relative w-full basis-auto h-[65%] flex justify-center items-center" id="hero-section">
-            <div class="absolute text-6xl md:text-9xl font-semibold dark:text-secondary-white">
-                <div class=" absolute w-12 h-12 rounded-full bg-red-300 -left-24 -top-12"></div>
-                <div class=" absolute w-8 h-8  rounded-full bg-blue-300 -right-16 -top-8"></div>
-                <div class=" absolute w-4 h-4  rounded-full bg-green-300 -left-16 -bottom-8"></div>
-                <div class=" absolute w-10 h-10 rounded-full bg-purple-300 -right-16 -bottom-12"></div>
-                nobr</div>
-        </div>
-        <div class="container mx-auto py-8 space-y-10">
-            <div class="text-center dark:text-secondary-white">
-                <h1 class="text-4xl font-medium p-2 m-2 px-16 lg:text-5xl max-lg:text-center">Connect<span class="text-blue-300">.</span> Chat<span class="text-green-300">.</span> 
-                <span class="text-5xl lg:text-6xl font-semibold">Discover</span></h1>
-                <h3 class="text-base font-extralight p-2 m-2 px-16 text-slate-700 dark:text-secondary-white">Make it better to anonymously connect with people face to face</h3>
-            </div>
-            <div class="flex flex-row gap-6 justify-center relative">
-                <button onclick="window.location.href='/video-chat'" class="w-32 h-14 lg:w-40 lg:h-16 lg:p-[18px] lg:text-lg p-4 text-center rounded-e-sm rounded-s-[4px] text-secondary-white bg-primary-green hover:bg-primary-green/80">
-                    <p>video</p>
-                </button>
-                <button onclick="window.location.href='/text-chat'" class="w-32 h-14 lg:w-40 lg:h-16 lg:p-[18px] lg:text-lg p-4 text-center rounded-s-sm rounded-e-[4px] text-secondary-white bg-primary-purple hover:bg-primary-purple/80">
-                    <p>chat</p>
-                </button>
-            </div>
-        </div>
-        <!-- main -->
+        <%- include('./components/herosection'); %>
     </main>
-    <footer class=" absolute -bottom-2 h-[8%] w-full bg-dark-mode-black font-light">
-        <button id="dark-mode-toggle" class="absolute border-2 rounded-full w-12 h-12 left-2 bottom-[4.25rem] shadow-sm bg-secondary-white lg:left-12 bg-img">
-        </button>
-        <nav class="h-full flex flex-row justify-between items-center container mx-auto px-4 text-secondary-white">
-            <p>&copy; nobr 2023</p>
-            <div class="flex flex-row space-x-2 mb-1 max-lg:space-x-4">
-                <a href="https://github.com/3akare" target="_blank" rel="noopener noreferrer">
-                    <img src="/images/github-svgrepo-com.svg" class="w-8 h-8 max-lg:w-[28px] rounded-full"></img>
-                </a>
-                <a href="mailto:bakaredavid007@gmail.com" target="_blank" rel="noopener noreferrer">
-                    <img src="/images/email-svgrepo-com.svg" class="w-8 h-8 max-lg:w-[20px]rounded-full"></img>
-                </a>
-                <a href="https://linkedin.com/in/david-bakare/" target="_blank" rel="noopener noreferrer">
-                    <img src="/images/linkedin-svgrepo-com.svg" class="w-8 h-8 max-lg:w-[20px]rounded-full"></img>
-                </a>
-            </div>
-        </nav>
-        <!-- footer -->
+    <footer class="absolute -bottom-2 h-[8%] w-full bg-dark-mode-black font-light">
+        <%- include('./components/footer'); %>
     </footer>
-    <script type="module" async src="/js/main.js"></script>
 </body>
 </html>
+<script>
+    document.body.previousElementSibling.insertAdjacentHTML('beforeend', 
+        `
+        <link rel="shortcut icon" href="/images/header/logo.png">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/font/WEB/css/satoshi.css">
+        `)
+    document.body.prepend(document.querySelector('header'));
+    document.body.append(document.querySelector('footer'));
+</script>

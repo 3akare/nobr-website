@@ -1,0 +1,78 @@
+<nav
+aria-label="header navigation"
+class="container mx-auto w-full h-20 flex flex-row p-2 items-center justify-between">
+    <a 
+    href="#"
+    class="lg:basis-1/4 block">
+        <img
+        src="/images/header/logo.png"
+        alt="nobr logo"
+        width="40px"
+        height="40px"
+        loading="lazy"
+        class="w-8 h-8 rounded-sm">
+    </a>
+
+    <% if (variant) { %>
+        <button
+        id="menu-btn"
+        class="block hamburger lg:hidden focus:outline-none">
+            <span
+            class="hamburger-top"></span>
+            <span
+            class="hamburger-middle"></span>
+            <span
+            class="hamburger-bottom"></span>
+        </button>
+        <div
+        class="absolute top-8 z-20 flex-col items-center self-end hidden py-8 mt-10 space-y-6 font-normal bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md lg:hidden "
+        id="menu">
+              <!-- <a
+              href="/legal"
+              class="hover:font-bold">Pricing</a> -->
+              <a href="legal"
+              class="hover:font-bold">About Us</a>
+              <a href="legal"
+              class="hover:font-bold">Community</a>
+          </div>
+    <%} else { %>
+        <div
+        class="w-12 h-12 border-2 rounded-full bg-slate-300">
+        </div>
+    <% } %>
+    <div
+    class="text-sm flex flex-row justify-around items-center basis-2/6 w-16 gap-1 max-lg:hidden">
+        <a
+        href="/legal"
+        class="mr-6 hover:text-dark-mode-black/50">
+            <p
+            class="p-2">
+                Legal
+            </p>
+        </a>
+        <button
+        onclick="window.location = '/video-chat'"
+        class="w-32 h-14 p-2 bg-primary-green rounded-s-[4px] rounded-e-sm text-secondary-white hover:bg-primary-green/90">
+            <p>
+                video
+            </p>
+        </button>
+        <button
+        onclick="window.location = '/text-chat'"
+        class="w-32 h-14 p-2 bg-primary-purple
+        rounded-e-[4px] rounded-s-sm text-secondary-white hover:bg-primary-purple/90">
+            <p>
+                text
+            </p>
+        </button>
+    </div>
+</nav>
+<script>
+const btn = document.getElementById('menu-btn')
+const nav = document.getElementById('menu')
+btn.addEventListener('click', ()=>{
+    btn.classList.toggle('open')
+    nav.classList.toggle('flex')
+    nav.classList.toggle('hidden')
+})
+</script>
