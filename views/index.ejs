@@ -13,11 +13,11 @@
         <!-- header -->
           <nav class="container mx-auto w-full flex flex-row p-2 pb-4 m-2 items-center justify-between font-light">
                 <a href="#">
-                    <div class="bg-gray-500 w-10 h-10 rounded-sm">
+                    <div class="w-10 h-10 rounded-sm dark:bg-[url(/images/Screenshot%202023-06-18%20at%2016.00.46.png)] bg-contain bg-center bg-[url(/images/Screenshot%202023-06-18%20at%2016.01.05.png)]">
                         <!-- <img src="#" alt="nobr logo" width="40px" height="40px"> -->
                     </div>
                 </a>
-                <div class="bg-gray-500 w-10 h-10 rounded-sm lg:hidden">
+                <div class="w-10 h-10 rounded-sm lg:hidden bg-contain bg-center bg-[url(/images/light.svg)] dark:bg-[url(/images/hamburger-menu-svgrepo-com.svg)]">
                     <!-- <img src="#" alt="nobr logo" width="40px" height="40px"> -->
                 </div>
                 <div class="max-lg:hidden text-sm pt-1.5">
@@ -44,12 +44,19 @@
           </nav>
     </header>
     <main class="flex flex-col h-[80%]">
-        <div class="w-full basis-auto bg-gray-500/10 h-[65%]">
+        <div class="relative w-full basis-auto h-[65%] flex justify-center items-center" id="hero-section">
+            <div class="absolute text-6xl md:text-9xl font-semibold dark:text-secondary-white">
+                <div class=" absolute w-12 h-12 rounded-full bg-red-300 -left-24 -top-12"></div>
+                <div class=" absolute w-8 h-8  rounded-full bg-blue-300 -right-16 -top-8"></div>
+                <div class=" absolute w-4 h-4  rounded-full bg-green-300 -left-16 -bottom-8"></div>
+                <div class=" absolute w-10 h-10 rounded-full bg-purple-300 -right-16 -bottom-12"></div>
+                nobr</div>
         </div>
         <div class="container mx-auto py-8 space-y-10">
             <div class="text-center dark:text-secondary-white">
-                <h1 class="text-4xl font-medium p-2 m-2 px-16 lg:text-5xl">Group Chat For Everyone</h1>
-                <h3 class="text-base font-extralight p-2 m-2 px-16 text-slate-700 dark:text-secondary-white">Make it better to connect to connect with people face to face</h3>
+                <h1 class="text-4xl font-medium p-2 m-2 px-16 lg:text-5xl max-lg:text-center">Connect<span class="text-blue-300">.</span> Chat<span class="text-green-300">.</span> 
+                <span class="text-5xl lg:text-6xl font-semibold">Discover</span></h1>
+                <h3 class="text-base font-extralight p-2 m-2 px-16 text-slate-700 dark:text-secondary-white">Make it better to anonymously connect with people face to face</h3>
             </div>
             <div class="flex flex-row gap-6 justify-center relative">
                 <button onclick="window.location.href='/video-chat'" class="w-32 h-14 lg:w-40 lg:h-16 lg:p-[18px] lg:text-lg p-4 text-center rounded-e-sm rounded-s-[4px] text-secondary-white bg-primary-green hover:bg-primary-green/80">
@@ -68,13 +75,13 @@
         <nav class="h-full flex flex-row justify-between items-center container mx-auto px-4 text-secondary-white">
             <p>&copy; nobr 2023</p>
             <div class="flex flex-row space-x-2 mb-1 max-lg:space-x-4">
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/3akare" target="_blank" rel="noopener noreferrer">
                     <img src="/images/github-svgrepo-com.svg" class="w-8 h-8 max-lg:w-[28px] rounded-full"></img>
                 </a>
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a href="mailto:bakaredavid007@gmail.com" target="_blank" rel="noopener noreferrer">
                     <img src="/images/email-svgrepo-com.svg" class="w-8 h-8 max-lg:w-[20px]rounded-full"></img>
                 </a>
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a href="https://linkedin.com/in/david-bakare/" target="_blank" rel="noopener noreferrer">
                     <img src="/images/linkedin-svgrepo-com.svg" class="w-8 h-8 max-lg:w-[20px]rounded-full"></img>
                 </a>
             </div>

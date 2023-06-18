@@ -625,6 +625,86 @@ html{
   right: 0px;
 }
 
+.top-0 {
+  top: 0px;
+}
+
+.top-3 {
+  top: 0.75rem;
+}
+
+.left-3 {
+  left: 0.75rem;
+}
+
+.-left-3 {
+  left: -0.75rem;
+}
+
+.-left-10 {
+  left: -2.5rem;
+}
+
+.-right-10 {
+  right: -2.5rem;
+}
+
+.bottom-0 {
+  bottom: 0px;
+}
+
+.-bottom-0 {
+  bottom: -0px;
+}
+
+.-bottom-3 {
+  bottom: -0.75rem;
+}
+
+.-left-16 {
+  left: -4rem;
+}
+
+.-right-16 {
+  right: -4rem;
+}
+
+.top-8 {
+  top: 2rem;
+}
+
+.-top-48 {
+  top: -12rem;
+}
+
+.-bottom-8 {
+  bottom: -2rem;
+}
+
+.-left-0 {
+  left: -0px;
+}
+
+.-top-3 {
+  top: -0.75rem;
+}
+
+.-top-8 {
+  top: -2rem;
+}
+
+.-left-24 {
+  left: -6rem;
+}
+
+.-top-12 {
+  top: -3rem;
+}
+
+.-bottom-12 {
+  bottom: -3rem;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -751,6 +831,14 @@ html{
   height: 100%;
 }
 
+.h-2 {
+  height: 0.5rem;
+}
+
+.h-4 {
+  height: 1rem;
+}
+
 .w-10 {
   width: 2.5rem;
 }
@@ -790,6 +878,18 @@ html{
 
 .w-full {
   width: 100%;
+}
+
+.w-\[\] {
+  width: ;
+}
+
+.w-2 {
+  width: 0.5rem;
+}
+
+.w-4 {
+  width: 1rem;
 }
 
 .max-w-\[80\%\] {
@@ -934,10 +1034,6 @@ html{
   background-color: rgb(107 114 128 / var(--tw-bg-opacity));
 }
 
-.bg-gray-500\/10 {
-  background-color: rgb(107 114 128 / 0.1);
-}
-
 .bg-primary-green {
   --tw-bg-opacity: 1;
   background-color: rgb(77 150 169 / var(--tw-bg-opacity));
@@ -970,6 +1066,107 @@ html{
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-red-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
+}
+
+.bg-red-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
+}
+
+.bg-blue-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(147 197 253 / var(--tw-bg-opacity));
+}
+
+.bg-green-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(134 239 172 / var(--tw-bg-opacity));
+}
+
+.bg-purple-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(216 180 254 / var(--tw-bg-opacity));
+}
+
+.bg-\[\] {
+  background-color: ;
+}
+
+.bg-\[url\(\)\] {
+  background-image: url();
+}
+
+.bg-\[url\(\/\)\] {
+  background-image: url(/);
+}
+
+.bg-\[url\(\/images\/\)\] {
+  background-image: url(/images/);
+}
+
+.bg-\[url\(\/images\/https\:\/\/github\.com\/3akare\/nobr-website\/blob\/main\/assets\/images\/Screenshot\%202023-06-18\%20at\%2016\.00\.46\.png\)\] {
+  background-image: url(/images/https://github.com/3akare/nobr-website/blob/main/assets/images/Screenshot%202023-06-18%20at%2016.00.46.png);
+}
+
+.bg-\[url\(images\/Screenshot\%202023-06-18\%20at\%2016\.00\.46\.png\)\] {
+  background-image: url(images/Screenshot%202023-06-18%20at%2016.00.46.png);
+}
+
+.bg-\[url\(\/images\/Screenshot\%202023-06-18\%20at\%2016\.00\.46\.png\)\] {
+  background-image: url(/images/Screenshot%202023-06-18%20at%2016.00.46.png);
+}
+
+.bg-\[url\(https\:\/\/github\.com\/3akare\/nobr-website\/blob\/main\/assets\/images\/Screenshot\%202023-06-18\%20at\%2016\.01\.05\.png\)\] {
+  background-image: url(https://github.com/3akare/nobr-website/blob/main/assets/images/Screenshot%202023-06-18%20at%2016.01.05.png);
+}
+
+.bg-\[url\(\/images\/Screenshot\%202023-06-18\%20at\%2016\.01\.05\.png\)\] {
+  background-image: url(/images/Screenshot%202023-06-18%20at%2016.01.05.png);
+}
+
+.bg-\[url\(\/images\/hamburger\)\] {
+  background-image: url(/images/hamburger);
+}
+
+.bg-\[url\(\/images\/hamburger-menu\)\] {
+  background-image: url(/images/hamburger-menu);
+}
+
+.bg-\[url\(\/images\/hamburger-menu-svg\)\] {
+  background-image: url(/images/hamburger-menu-svg);
+}
+
+.bg-\[url\(\/images\/hamburger-menu-svgrepo\)\] {
+  background-image: url(/images/hamburger-menu-svgrepo);
+}
+
+.bg-\[url\(\/images\/hamburger-menu-svgrepo\.svg\)\] {
+  background-image: url(/images/hamburger-menu-svgrepo.svg);
+}
+
+.bg-\[url\(\/images\/hamburger-menu-svgrepo-com\.svg\)\] {
+  background-image: url(/images/hamburger-menu-svgrepo-com.svg);
+}
+
+.bg-\[url\(\/images\/hamburger-menu-svgrepo-com\)\] {
+  background-image: url(/images/hamburger-menu-svgrepo-com);
+}
+
+.bg-\[url\(\/images\/light\.svg\)\] {
+  background-image: url(/images/light.svg);
+}
+
+.bg-contain {
+  background-size: contain;
+}
+
+.bg-center {
+  background-position: center;
 }
 
 .p-2 {
@@ -1039,6 +1236,11 @@ html{
   line-height: 2.5rem;
 }
 
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -1047,6 +1249,21 @@ html{
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
 }
 
 .font-extralight {
@@ -1059,6 +1276,10 @@ html{
 
 .font-medium {
   font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
 }
 
 .font-thin {
@@ -1088,6 +1309,21 @@ html{
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-green-400 {
+  --tw-text-opacity: 1;
+  color: rgb(74 222 128 / var(--tw-text-opacity));
+}
+
+.text-green-300 {
+  --tw-text-opacity: 1;
+  color: rgb(134 239 172 / var(--tw-text-opacity));
+}
+
+.text-blue-300 {
+  --tw-text-opacity: 1;
+  color: rgb(147 197 253 / var(--tw-text-opacity));
 }
 
 .shadow-md {
@@ -1138,6 +1374,18 @@ html{
   background-color: rgb(40 41 63 / var(--tw-bg-opacity));
 }
 
+:is(.dark .dark\:bg-\[url\(\/images\/Screenshot\%202023-06-18\%20at\%2016\.00\.46\.png\)\]) {
+  background-image: url(/images/Screenshot%202023-06-18%20at%2016.00.46.png);
+}
+
+:is(.dark .dark\:bg-\[url\(\/images\/hamburger-menu-svgrepo-com\.svg\)\]) {
+  background-image: url(/images/hamburger-menu-svgrepo-com.svg);
+}
+
+:is(.dark .dark\:bg-\[url\(\/images\/hamburger-\)\]) {
+  background-image: url(/images/hamburger-);
+}
+
 :is(.dark .dark\:text-secondary-white) {
   --tw-text-opacity: 1;
   color: rgb(250 250 250 / var(--tw-text-opacity));
@@ -1176,9 +1424,20 @@ html{
     margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
   }
 
+  .max-lg\:text-center {
+    text-align: center;
+  }
+
   .max-lg\:text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:text-9xl {
+    font-size: 8rem;
+    line-height: 1;
   }
 }
 
@@ -1253,5 +1512,10 @@ html{
   .lg\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
+  }
+
+  .lg\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
   }
 }
