@@ -5,25 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>nobr | Meet Strangers</title>
 </head>
-<body class="h-full">
+<body class="h-full dark:bg-dark-mode-black">
     <header class="w-full shadow-sm">
-        <%- include('./components/header', {variant: true}); %>
+        <%- include('./components/header', {variant: ['not toggle', 'home']}); %>
     </header>
     <main class="flex flex-col h-[80%]">
         <%- include('./components/herosection'); %>
     </main>
     <footer class="absolute -bottom-2 h-[8%] w-full bg-dark-mode-black font-light">
-        <%- include('./components/footer'); %>
+        <%- include('./components/footer', {variant2: true}); %>
     </footer>
 </body>
 </html>
-<script>
-    document.body.previousElementSibling.insertAdjacentHTML('beforeend', 
-        `
-        <link rel="shortcut icon" href="/images/header/logo.png">
-        <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/font/WEB/css/satoshi.css">
-        `)
-    document.body.prepend(document.querySelector('header'));
-    document.body.append(document.querySelector('footer'));
-</script>
+<script src="/js/main.js"></script>

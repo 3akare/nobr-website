@@ -2,57 +2,82 @@
 aria-label="header navigation"
 class="container mx-auto w-full h-20 flex flex-row p-2 items-center justify-between">
     <a 
-    href="#"
+    href="/"
     class="lg:basis-1/4 block">
-        <img
+        <!-- <img
         src="/images/header/logo.png"
         alt="nobr logo"
         width="40px"
         height="40px"
         loading="lazy"
-        class="w-8 h-8 rounded-sm">
+        class="w-8 h-8 rounded-sm"> -->
+        <p
+        class="text-5xl font-bold p-2 dark:text-secondary-white">
+            n
+        </p>
     </a>
 
-    <% if (variant) { %>
+    <% if (variant[0] === 'not toggle') { %>
         <button
         id="menu-btn"
         class="block hamburger lg:hidden focus:outline-none">
             <span
-            class="hamburger-top"></span>
+            class="hamburger-top dark:bg-secondary-white"></span>
             <span
-            class="hamburger-middle"></span>
+            class="hamburger-middle dark:bg-secondary-white"></span>
             <span
-            class="hamburger-bottom"></span>
+            class="hamburger-bottom dark:bg-secondary-white"></span>
         </button>
         <div
-        class="absolute top-8 z-20 flex-col items-center self-end hidden py-8 mt-10 space-y-6 font-normal bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md lg:hidden "
+        class="absolute top-8 z-20 flex-col items-center self-end hidden py-8 mt-10 space-y-6 font-normal bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md lg:hidden dark:bg-dark-mode-black dark:text-secondary-white"
         id="menu">
               <!-- <a
               href="/legal"
               class="hover:font-bold">Pricing</a> -->
-              <a href="legal"
-              class="hover:font-bold">About Us</a>
-              <a href="legal"
+              <% if(variant[1] === 'legal') { %>
+                <a href="/"
+                class="hover:font-bold"> 
+                Home
+                </a>
+              <%} else { %>
+                <a href="legal"
+                class="hover:font-bold">
+                About Us
+                </a>
+              <% } %>
+             
+              <a href="legal#Community"
               class="hover:font-bold">Community</a>
           </div>
     <%} else { %>
         <div
-        class="w-12 h-12 border-2 rounded-full bg-slate-300">
-        </div>
+        id="dark-mode-toggle"
+        class="w-10 h-10 lg:w-12 lg:h-12 lg:-top-14 border-2 rounded-full bg-[url(/images/theme/moon.svg)] bg-center bg-no-repeat bg-contain cursor-pointer">
     <% } %>
     <div
     class="text-sm flex flex-row justify-around items-center basis-2/6 w-16 gap-1 max-lg:hidden">
-        <a
-        href="/legal"
-        class="mr-6 hover:text-dark-mode-black/50">
-            <p
-            class="p-2">
-                Legal
-            </p>
-        </a>
+        <% if(variant[1] === 'legal') { %>
+            <a
+            href="/"
+            class="mr-6 hover:text-dark-mode-black/50 dark:text-secondary-white dark:hover:text-secondary-white/50">
+                <p
+                class="p-2">
+                Home
+                </p>
+            </a>
+        <%} else { %>
+            <a
+            href="/legal"
+            class="mr-6 hover:text-dark-mode-black/50 dark:text-secondary-white dark:hover:text-secondary-white/50">
+                <p
+                class="p-2">
+                    About Us
+                </p>
+            </a>
+        <% } %>
         <button
         onclick="window.location = '/video-chat'"
-        class="w-32 h-14 p-2 bg-primary-green rounded-s-[4px] rounded-e-sm text-secondary-white hover:bg-primary-green/90">
+        class="w-32 h-14 p-2 bg-primary-green rounded-s-[4px] rounded-e-sm text-secondary-white hover:bg-primary-green/90 dark:border-primary-green dark:border dark:bg-dark-mode-black dark:hover:text-primary-green">
             <p>
                 video
             </p>
@@ -60,13 +85,14 @@ class="container mx-auto w-full h-20 flex flex-row p-2 items-center justify-betw
         <button
         onclick="window.location = '/text-chat'"
         class="w-32 h-14 p-2 bg-primary-purple
-        rounded-e-[4px] rounded-s-sm text-secondary-white hover:bg-primary-purple/90">
+        rounded-e-[4px] rounded-s-sm text-secondary-white hover:bg-primary-purple/90 dark:border-primary-purple dark:border dark:bg-dark-mode-black dark:hover:text-primary-purple">
             <p>
                 text
             </p>
         </button>
     </div>
 </nav>
+
 <script>
 const btn = document.getElementById('menu-btn')
 const nav = document.getElementById('menu')
