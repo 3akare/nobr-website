@@ -1,6 +1,7 @@
 document.body.previousElementSibling.insertAdjacentHTML('beforeend', 
     `
-    <link rel="shortcut icon" href="/images/header/logo.png">
+    <link href="/images/header/light-logo.png" rel="icon" media="(prefers-color-scheme: light)"/>
+    <link href="/images/header/dark-logo.png" rel="icon" media="(prefers-color-scheme: dark)"/>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/font/WEB/css/satoshi.css">
     `)

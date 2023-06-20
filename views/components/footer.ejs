@@ -6,7 +6,7 @@ class="h-full flex flex-row justify-between items-center container mx-auto px-4 
     </div>
 
     <% if (variant2) { %>
-        <p>&copy; nobr 2023</p>
+        <p>&copy; nobr <time></time></p>
     <div class="flex flex-row space-x-2 mb-1 max-lg:space-x-4">
         <a href="https://github.com/3akare" target="_blank" rel="noopener noreferrer">
             <img src="/images/footer/github-svgrepo-com.svg" class="w-8 h-8 max-lg:w-[28px] rounded-full"></img>
@@ -17,3 +17,6 @@ class="h-full flex flex-row justify-between items-center container mx-auto px-4 
     </div>
     <%}%>
 </nav>
+<script>
+    document.querySelector('time').innerText =  new Date().getFullYear();
+</script>
