@@ -1,102 +1,43 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full w-full" id="dark-mode-master">
+<html lang="en" class="h-full" id="dark-mode-master">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/font/WEB/css/satoshi.css">
-    <title>nobr | Meet Strangers</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js" integrity="sha512-xbQU0+iHqhVt7VIXi6vBJKPh3IQBF5B84sSHdjKiSccyX/1ZI7Vnkt2/8y8uruj63/DVmCxfUNohPNruthTEQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>nobr | Meet Strangers</title>
 </head>
 <body class="h-full dark:bg-dark-mode-black">
-    <header class="shadow-sm h-[8%] w-full fixed">
-        <!-- header -->
-          <nav class="container mx-auto w-full flex flex-row p-2 pb-4 m-2 items-center justify-between">
-            <a href="/">
-                <div class="bg-gray-500 w-10 h-10 rounded-sm">
-                    <!-- <img src="#" alt="nobr logo" width="40px" height="40px"> -->
-                </div>
-            </a>
-            <div class="w-32 h-9 py-1.5 text-center rounded-sm
-            text-white max-lg:hidden bg-primary-purple hover:bg-primary-purple/80 dark:bg-dark-mode-black dark:border-primary-purple dark:border-[1px] dark:hover:text-primary-purple box-border cursor-pointer">
-            <p class="font-extralight">chat</p>
-            </div>
-          </nav>
+    <header class="shadow-sm h-[9.5%] w-full fixed bg-white z-10 dark:bg-dark-mode-black">
+        <%- include('./components/header', {variant: ['toggle', 'chat']}) %>
     </header>
-    <main class="container mx-auto flex flex-col p-2 space-y-2 h-full">
-        <article class="bg-primary-green w-fit h-fit mt-[70px] p-2 rounded-sm text-white">
-            <h1 class="text-sm">
-                You are connected
-            </h1>
-        </article>
-        <section class="p-4 w-full h-[90%] flex flex-col space-y-2 lg:flex-row lg:space-y-0 lg:space-x-1">
-            <section class="relative w-full h-2/3 lg:h-[85%] lg:flex lg:flex-col lg:space-y-1">
-                <!-- todo: <div id="user-1" class="max-lg:hidden bg-gray-500 h-full w-full">
+    <main class="w-full h-[91%] mt-16 absolute flex justify-center flex-col p-2 gap-1 lg:flex-row">
+        <div class="relative w-full lg:w-1/2 h-[50%] bg-slate-500/25 lg:h-full">
+            <video class="w-full h-full relative" id="user-2" autoplay="autoplay" playsinnline="playsinnline">
+            </video>
+            <p class="absolute bottom-0 w-fit right-0 p-1 text-secondary-white/10 rounded-sm m-2">nobr</p>
+        </div>
+        <div class="relative w-full lg:w-1/2 h-[50%] bg-slate-500/25 lg:h-full">
+            <video class="w-full h-full relative" id="user-1" autoplay="autoplay" playsinnline="playsinnline">
+            </video>
+            <p class="absolute bottom-0 w-fit right-0 p-1 text-secondary-white/10 rounded-sm m-2">nobr</p>
+            <div class="w-full h-[80px] absolute bottom-0">
+                <div class="flex items-center justify-center">
+                    <button class="lg:w-24 w-14 md:w-20 h-14 bg-red-500/80 lg:rounded-sm rounded-full text-secondary-white mt-3 shadow-sm flex items-center justify-center">
+                        <img src="/images/chat/end-call-svgrepo-com.svg" width="30px" height="30px">
+                    </button>
                 </div>
-                <div id="user-2" class="max-lg:hidden bg-gray-500 h-full w-full">
-                </div> -->
-                <!-- mobile -->
-                <video id="user-2" class=" lg:hidden absolute bg-gray-500 h-full w-full" autoplay="autoplay" playsinnline="playsinnline">
-                </video>
-                <video id="user-1" class="absolute w-[100px] bg-red-200 h-[110px] rounded-sm m-1 right-0 lg:hidden" autoplay="autoplay" playsinnline="playsinnline">
-                </video>
-                <!-- mobile -->
-            </section>
-            <section class="w-full h-1/3 lg:h-[85%] bg-gray-500 lg:hidden">
-                 <section id="chat-text-area" class="h-full relative overflow-auto p-2 max-lg:text-sm">
-                    <!-- <div class="flex flex-row justify-end">
-                        <div class="text-right block h-fit p-2 w-fit max-w-[80%] bg-red-200 mb-2 rounded-sm">
-                            Hi Stranger
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-start">
-                        <div class="text-left block h-fit p-2 w-fit max-w-[80%] bg-blue-200 mb-2 rounded-sm">
-                            Bye Stranger
-                        </div>
-                    </div>  -->
-                    <!-- <div class="h-[100px] w-full">
-                    </div> -->
-                </section>
-                 <!-- todos: Add buttons -->
-                 <!-- todo: add toggle effect for chat to manage space. And change the video screens to lg:flex-row -->
-                 <form>
-                    <textarea id="chat" rows="1" class="container mx-auto p-4 mb-1 h-[60px] w-[85%] text-sm text-gray-900 rounded-lg border border-gray-300 outline-none resize-none box-border fixed bottom-1 left-0 right-0 shadow-md" autofocus placeholder="Your message..." oninput="adjustTextareaHeight(event)"></textarea> 
-                </form>
-            </section>
-        </section>
-        
-    </main>
-    <!-- todo: Make this a dark mode toggle button -->
-    <footer class="absolute -bottom-2 h-[8%] w-full bg-gray-500 hidden">
-        <button id="dark-mode-toggle" class="absolute bg-slate-500 rounded-full w-12 h-12 left-2 bottom-20 lg:left-12">
-        </button>
-        <nav class="h-full flex flex-row justify-between items-center container mx-auto px-4 text-white">
-            <p>&copy; nobr 2023</p>
-            <div class="flex flex-row space-x-2">
-                <div class="w-6 h-6 bg-white rounded-full"></div>
-                <div class="w-6 h-6 bg-white rounded-full"></div>
-                <div class="w-6 h-6 bg-white rounded-full"></div>
             </div>
-        </nav>
-        <!-- footer -->
+        </div>
+        <div class="hidden" id="chat-text-area"></div>
+    </main>
+    <div id="sendTextButton"></div>
+    <div id="chat"></div>
+    <footer class="text-center z-20 h-[40px] absolute w-full -bottom-[18px] text-slate-400">
+        connected
     </footer>
-    <script type="module" async src="/js/main.js"></script>
-    <script>
-        function adjustTextareaHeight(event) {
-          const textarea = event.target;
-          textarea.style.height = ""; // Reset the height to auto
-      
-          const computedStyle = window.getComputedStyle(textarea);
-          const paddingTop = parseInt(computedStyle.getPropertyValue("padding-top"));
-          const paddingBottom = parseInt(computedStyle.getPropertyValue("padding-bottom"));
-          const lineHeight = parseInt(computedStyle.getPropertyValue("line-height"));
-      
-          const scrollHeight = textarea.scrollHeight;
-          const rows = Math.min(Math.floor((scrollHeight - paddingTop - paddingBottom) / lineHeight), 5);
-          textarea.style.height = `${rows * lineHeight + paddingTop + paddingBottom}px`;
-        }
-      </script>
-       <script type="module" src="/js/index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/index.js"></script>
 </body>
 </html>

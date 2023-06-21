@@ -37,3 +37,17 @@ window.addEventListener('load', () => {
     htmlBody.classList.remove('dark');
   }
 });
+
+function adjustTextareaHeight(event) {
+  const textarea = event.target;
+  textarea.style.height = ""; // Reset the height to auto
+
+  const computedStyle = window.getComputedStyle(textarea);
+  const paddingTop = parseInt(computedStyle.getPropertyValue("padding-top"));
+  const paddingBottom = parseInt(computedStyle.getPropertyValue("padding-bottom"));
+  const lineHeight = parseInt(computedStyle.getPropertyValue("line-height"));
+
+  const scrollHeight = textarea.scrollHeight;
+  const rows = Math.min(Math.floor((scrollHeight - paddingTop - paddingBottom) / lineHeight), 5);
+  textarea.style.height = `${rows * lineHeight + paddingTop + paddingBottom}px`;
+}

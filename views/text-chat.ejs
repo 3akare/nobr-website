@@ -1,92 +1,40 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full w-full" id="dark-mode-master">
+<html lang="en" class="h-full" id="dark-mode-master">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/font/WEB/css/satoshi.css">
     <title>nobr | Meet Strangers</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js" integrity="sha512-xbQU0+iHqhVt7VIXi6vBJKPh3IQBF5B84sSHdjKiSccyX/1ZI7Vnkt2/8y8uruj63/DVmCxfUNohPNruthTEQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body class="h-full dark:bg-dark-mode-black">
-    <header class="shadow-sm h-[8%] w-full fixed z-10">
-        <!-- header -->
-          <nav class="container mx-auto w-full flex flex-row p-2 pb-4 m-2 items-center justify-between">
-            <a href="/">
-                <div class="bg-gray-500 w-10 h-10 rounded-sm">
-                    <!-- <img src="#" alt="nobr logo" width="40px" height="40px"> -->
-                </div>
-            </a>
-            <div class="w-10 h-10 rounded-full border-2 shadow-sm bg-secondary-white" id="dark-mode-toggle">
-                <!-- <img src="#" alt="nobr logo" width="40px" height="40px"> -->
-            </div>
-          </nav>
+    <header class="shadow-sm h-[9.5%] w-full fixed bg-white z-10 dark:bg-dark-mode-black">
+        <%- include('./components/header', {variant: ['toggle', 'chat']}) %>
     </header>
-    <main class="container mx-auto flex flex-col p-2 space-y-2">
-        <article class="bg-primary-green w-fit h-fit mt-[70px] p-2 rounded-sm text-white">
-            <h1 class="text-sm">
-                You are connected
-            </h1>
-        </article>
-        <section class="p-4">
-            <section id="chat-text-area" class="h-full relative max-lg:text-sm" id="text-message-area">
-                <!-- <div class="flex flex-row justify-end">
-                    <div class="text-right block h-fit p-2 w-fit max-w-[80%] bg-primary-purple mb-2 rounded-sm text-secondary-white font-thin">
-                        Hi Stranger
-                    </div>
-                </div>
-                <div class="flex flex-row justify-start">
-                    <div class="text-left block h-fit p-2 w-fit max-w-[80%] bg-slate-500/100 mb-2 rounded-sm text-secondary-white font-thin">
-                        Bye Stranger
-                    </div>
-                </div> -->
-            </section>
-            <section class="w-full">
-                <!-- todos: Add buttons -->
-                <form>
-                    <textarea id="chat" rows="1" class="container mx-auto p-4 mb-[20px] h-[60px] w-[80%] text-sm text-gray-900 rounded-lg border border-gray-300 outline-none resize-none box-border fixed bottom-2 left-0 right-0 shadow-md dark:bg-dark-mode-black dark:text-secondary-white" autofocus placeholder="Your message..." oninput="adjustTextareaHeight(event)"></textarea> 
-                </form>
-                <div id="user-1">
-
-                </div>
-                <div id="user-2">
-
-                </div>
-            </section>
-        </section>
-        
-    </main>
-    <!-- todo: Make this a dark mode toggle button -->
-    <footer class="absolute -bottom-2 h-[8%] w-full bg-gray-500 hidden">
-        <button id="dark-mode-toggle" class="absolute bg-slate-500 rounded-full w-12 h-12 left-2 bottom-20 lg:left-12">
-        </button>
-        <nav class="h-full flex flex-row justify-between items-center container mx-auto px-4 text-white">
-            <p>&copy; nobr 2023</p>
-            <div class="flex flex-row space-x-2">
-                <div class="w-6 h-6 bg-white rounded-full"></div>
-                <div class="w-6 h-6 bg-white rounded-full"></div>
-                <div class="w-6 h-6 bg-white rounded-full"></div>
+    <main class="w-full h-[91%] mt-16 absolute flex justify-center">
+        <div class="relative container mx-auto w-full h-[90%] py-12 px-2 overflow-y-auto">
+            <div class="w-full" id="chat-text-area">
+                <div class="hidden" id="user-1"></div>
+                <div class="hidden" id="user-2"></div>
+                <div id="scrollintoview"></div>
             </div>
-        </nav>
-        <!-- footer -->
+        </div>
+        <div class="flex flex-row items-center justify-center absolute bottom-3 w-full max-w-6xl">
+            <button class="flex-grow w-[50px] bg-red-500 h-[54px] max-w-[54px] p-2 py-4 m-2 mr-[2px] rounded-s-[4px] rounded-e-sm shadow-md text-secondary-white">
+                next
+            </button>
+            <textarea id="chat" rows="1" class="p-4 my-1 h-[54px] w-[80%] text-sm text-gray-900 rounded-sm border border-gray-300 outline-none resize-none box-border left-0 right-0 shadow-md dark:bg-dark-mode-black dark:text-secondary-white" autofocus placeholder="Your message..." oninput="adjustTextareaHeight(event)"></textarea>
+            <button class="absolute flex-grow w-12 h-12 p-1 m-2 ml-[2px] rounded-full text-secondary-white right-1" id="sendTextButton">
+                <img src="/images/chat/send-svgrepo-com.svg" class="block dark:hidden" width="35px" height="35px">
+                <img src="/images/chat/send-2-svgrepo-com.svg" class="hidden dark:block" width="35px" height="35px">
+            </button>
+        </div>
+    </main>
+    <footer class="text-center z-20 h-[40px] absolute w-full -bottom-[18px] text-slate-400">
+        connected
     </footer>
-    <script type="module" async src="/js/main.js"></script>
-    <script>
-        function adjustTextareaHeight(event) {
-          const textarea = event.target;
-          textarea.style.height = ""; // Reset the height to auto
-      
-          const computedStyle = window.getComputedStyle(textarea);
-          const paddingTop = parseInt(computedStyle.getPropertyValue("padding-top"));
-          const paddingBottom = parseInt(computedStyle.getPropertyValue("padding-bottom"));
-          const lineHeight = parseInt(computedStyle.getPropertyValue("line-height"));
-      
-          const scrollHeight = textarea.scrollHeight;
-          const rows = Math.min(Math.floor((scrollHeight - paddingTop - paddingBottom) / lineHeight), 5);
-          textarea.style.height = `${rows * lineHeight + paddingTop + paddingBottom}px`;
-        }
-      </script>
-       <script type="module" src="/js/index.js"></script>
+    <script src="/js/main.js"></script>
+    <script type="module" src="/js/index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js" integrity="sha512-xbQU0+iHqhVt7VIXi6vBJKPh3IQBF5B84sSHdjKiSccyX/1ZI7Vnkt2/8y8uruj63/DVmCxfUNohPNruthTEQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>
