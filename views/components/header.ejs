@@ -42,7 +42,7 @@ class="container mx-auto w-full h-20 flex flex-row p-2 items-center justify-betw
               <%} else { %>
                 <a href="legal"
                 class="hover:font-bold">
-                About Us
+                About
                 </a>
               <% } %>
              
@@ -57,44 +57,53 @@ class="container mx-auto w-full h-20 flex flex-row p-2 items-center justify-betw
         class="w-10 h-10 lg:w-12 lg:h-12 lg:-top-14 border-2 rounded-full bg-[url(/images/theme/moon.svg)] bg-center bg-no-repeat bg-contain cursor-pointer">
     <% } %>
     <div
-    class="text-sm flex flex-row justify-around items-center basis-2/6 w-16 gap-1 max-lg:hidden">
-        <% if(variant[1] === 'legal') { %>
-            <a
-            href="/"
-            class="mr-6 hover:text-dark-mode-black/50 dark:text-secondary-white dark:hover:text-secondary-white/50">
-                <p
-                class="p-2">
-                Home
+    class="text-sm flex flex-row justify-evenly items-center basis-2/6 w-16 gap-1 max-lg:hidden">
+        <% if (variant[1] !== 'chat') {%>
+            <% if(variant[1] === 'legal') { %>
+                <a
+                href="/"
+                class="mr-6 hover:text-dark-mode-black/50 dark:text-secondary-white dark:hover:text-secondary-white/50">
+                    <p
+                    class="p-2">
+                    Home
+                    </p>
+                </a>
+            <%} else { %>
+                <a
+                href="/legal"
+                class="mr-6 hover:text-dark-mode-black/50 dark:text-secondary-white dark:hover:text-secondary-white/50">
+                    <p
+                    class="p-2">
+                        About
+                    </p>
+                </a>
+            <% } %>
+        <% } %>   
+        <% if(variant[1] === 'legal' || variant[1] === 'home') { %>
+            <button
+            onclick="window.location = '/video-chat'"
+            class="w-28 h-8 p-1 bg-primary-green rounded-s-[4px] rounded-e-sm text-secondary-white hover:bg-primary-green/90 dark:border-primary-green dark:border dark:bg-dark-mode-black dark:hover:text-primary-green">
+                <p>
+                    video
                 </p>
-            </a>
+            </button>
+            <button
+            onclick="window.location = '/text-chat'"
+            class="w-28 h-8 p-1 bg-primary-purple
+            rounded-e-[4px] rounded-s-sm text-secondary-white hover:bg-primary-purple/90 dark:border-primary-purple dark:border dark:bg-dark-mode-black dark:hover:text-primary-purple">
+                <p>
+                    text
+                </p>
+            </button>
+           
         <%} else { %>
-            <a
-            href="/legal"
-            class="mr-6 hover:text-dark-mode-black/50 dark:text-secondary-white dark:hover:text-secondary-white/50">
-                <p
-                class="p-2">
-                    About
-                </p>
-            </a>
+            <!-- nothing happens -->
         <% } %>
-        <button
-        onclick="window.location = '/video-chat'"
-        class="w-32 h-14 p-2 bg-primary-green rounded-s-[4px] rounded-e-sm text-secondary-white hover:bg-primary-green/90 dark:border-primary-green dark:border dark:bg-dark-mode-black dark:hover:text-primary-green">
-            <p>
-                video
-            </p>
-        </button>
-        <button
-        onclick="window.location = '/text-chat'"
-        class="w-32 h-14 p-2 bg-primary-purple
-        rounded-e-[4px] rounded-s-sm text-secondary-white hover:bg-primary-purple/90 dark:border-primary-purple dark:border dark:bg-dark-mode-black dark:hover:text-primary-purple">
-            <p>
-                text
-            </p>
-        </button>
+       
     </div>
 </nav>
 
+<% if (variant[1] !== 'chat') {%>
 <script>
 const btn = document.getElementById('menu-btn')
 const nav = document.getElementById('menu')
@@ -104,3 +113,5 @@ btn.addEventListener('click', ()=>{
     nav.classList.toggle('hidden')
 })
 </script>
+<%} else { %>
+<%} %>
