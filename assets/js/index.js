@@ -12,8 +12,50 @@ let receiveChannel;
 
 let ChatTextArea = document.querySelector('#chat-text-area');
 
-username = url.searchParams.get('username');
-remoteUser = url.searchParams.get('remoteuser');
+//Get userID
+let nobruserID = localStorage.getItem('nobruserID');
+
+// Set Up userID
+if (nobruserID){
+  username = nobruserID;
+  $.ajax({
+    type: 'PUT',
+    url: `/new-user-update/${nobruserID}`,
+    success: function(response){
+      console.log(response);
+    }
+  })
+  
+}else{
+  // Set up userID if this is first time user
+  let postData = "Demo Data";
+
+$.ajax({
+  type: "POST",
+  url: "/api/users",
+  data: postData,
+  success: function(response){
+    console.log(`New: ${response}`);
+    localStorage.setItem('nobruserID', response);
+    username = response;
+  },
+  error: function(error){
+    console.log(error);
+  }
+})
+}
+
+
+// remoteUser = url.searchParams.get('remoteuser');
+// todo: fix this
+// function checkCamera(){
+//   if (window.location.href === 'http://localhost:3000/video-chat'){
+//     return true;
+//   }
+//   else{
+//     return false;
+//   }
+// }
 
 const init = async () => {
   // Get users media devices
@@ -23,7 +65,19 @@ const init = async () => {
     // todo: change back to true
   });
   document.querySelector('#user-1').srcObject = localStream;
-  createOffer();
+
+  $.post('http://localhost:3000/get-remote-users', {nobruserID: nobruserID})
+  .done(function(data){
+    if (data[0]){
+      if (data[0]._id == remoteUser || data[0]._id == username){
+      }else{
+        remoteUser = data[0]._id
+      }
+    }
+    createOffer();
+  }).fail(function(xhr, textStatus, errorThrown){
+    console.log(xhr.responseText);
+  })
 };
 
 init();
@@ -96,15 +150,18 @@ const createPeerConnection = async () => {
   // sendChannel.onmessage = onSendChannelMessageCallback;
 };
 
-
+const lastChild = document.querySelector('#chat-text-area').lastElementChild
 function sendData(data){
-    ChatTextArea.innerHTML += `
-    <div class="flex flex-row justify-end">
-                        <div class="text-right block h-fit p-2 w-fit max-w-[80%] bg-red-200 mb-2 rounded-sm">
-                            ${data}
-                        </div>
-                    </div>
-`;
+    const newElement = document.createElement("div");
+    newElement.className = "w-full flex justify-end text-white";
+    newElement.innerHTML = `
+        <div class="w-fit bg-purple-400 my-1 p-2 rounded-sm max-w-[75%]">
+            ${data}
+        </div>
+    `;
+    ChatTextArea.insertBefore(newElement, lastChild);
+    scrollElementIntoView();
+
     if(sendChannel){
       onSendChannelStateChange();
       sendChannel.send(data);
@@ -123,13 +180,20 @@ function receiveChannelCallback(event){
 
 function onReceiveChannelMessageCallback(event){
   console.log('Received Message');
-  ChatTextArea.innerHTML += `
-  <div class="flex flex-row justify-start">
-    <div class="text-left block h-fit p-2 w-fit max-w-[80%] bg-blue-200 mb-2 rounded-sm">
-                  ${event.data}
-    </div>
-  </div> 
-`;
+  const newElement = document.createElement("div");
+    newElement.className = "w-full flex justify-start text-white";
+    newElement.innerHTML = `
+        <div class="w-fit bg-blue-400 my-1 p-2 rounded-sm max-w-[75%]">
+            ${event.data}
+        </div>
+    `;
+    ChatTextArea.insertBefore(newElement, lastChild);
+    scrollElementIntoView();
+}
+
+const scrollIntoViewElement = document.getElementById("scrollintoview");
+function scrollElementIntoView() {
+  scrollIntoViewElement.scrollIntoView({ behavior: "smooth" });
 }
 
 function onReceiveChannelStateChange(){
@@ -209,6 +273,17 @@ socket.on('candidateReceiver', function (data) {
 
 
 const chatText = document.querySelector('#chat');
+document.querySelector('#sendTextButton').addEventListener('click', (event)=>{
+  const value = chatText.value.trim(); // Get the trimmed value
+  if (value !== '') {
+    // Use the value as desired
+    // console.log(value);
+    sendData(value);
+    chatText.value = '';
+    chatText.style.height = ""
+    // You can perform any other actions here with the value
+  }
+})
 
 chatText.addEventListener('keydown', (event) => {
   if (event.key === 'Enter' && !event.shiftKey) {
@@ -224,3 +299,14 @@ chatText.addEventListener('keydown', (event) => {
     }
   }
 });
+
+
+window.addEventListener('beforeunload', function(event){
+  $.ajax({
+    url: `/leaving-user-update/${username}`,
+    type: 'PUT',
+    success: function(response){
+      console.log(response);
+    }
+  })
+})
