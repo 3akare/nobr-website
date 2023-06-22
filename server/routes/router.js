@@ -20,6 +20,12 @@ route.put('/leaving-user-update/:id', controller.leavingUserUpdate);
 
 route.put('/new-user-update/:id', controller.newUserUpdate);
 
+route.put('/update-on-engagment/:id', controller.updateOnEngagement);
+
+route.put('/update-on-next/:id', controller.updateOnNext);
+
 route.post('/get-remote-users', controller.remoteUserFind);
+
+route.post('/get-next-user', controller.getNextUser);
 
 module.exports = route;

@@ -89,4 +89,12 @@ io.on('connection', (socket) => {
     );
     // }
   });
+
+  socket.on('remoteUserClosed', (data) => {
+    let closedUser = userConnections.find((o) => o.user_id === data.remoteUser);
+    if (closedUser) {
+      console.log(`closedUser user is: ${closedUser.connectionId}`);
+      socket.to(closedUser.connectionId).emit('closedRemoteUser', data);
+    }
+  })
 });

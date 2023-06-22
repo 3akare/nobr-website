@@ -61,6 +61,47 @@ exports.newUserUpdate = (req, res) => {
     })
 }
 
+// Sets user status to 1, when they are engaged
+exports.updateOnEngagement = (req, res) => {
+    const userid = req.params.id;
+    console.log(`Revisited userID is: ${userid}`);
+
+    userDB.updateOne({_id: userid}, {$set: {status: "1"}})
+    .then((data) => {
+        if(!data){
+            res.status(404).send({
+                message: `Cannot update user ${userid}. User Not Found`
+            })
+        }else{
+            res.send("1 document updated");
+        }
+    }).catch((err) => {
+        res.status(500).send({
+            message: err.message || 'Error update user information'
+        });
+    })
+}
+
+exports.updateOnNext = (req, res) => {
+    const userid = req.params.id;
+    console.log(`Revisited userID is: ${userid}`);
+
+    userDB.updateOne({_id: userid}, {$set: {status: "0"}})
+    .then((data) => {
+        if(!data){
+            res.status(404).send({
+                message: `Cannot update user ${userid}. User Not Found`
+            })
+        }else{
+            res.send("1 document updated");
+        }
+    }).catch((err) => {
+        res.status(500).send({
+            message: err.message || 'Error update user information'
+        });
+    })
+}
+
 //Find a new user, that is active and isnt on a call, and isn't the local user
 exports.remoteUserFind = (req, res) => {
     const nobruserID = req.body.nobruserID;
@@ -83,4 +124,30 @@ exports.remoteUserFind = (req, res) => {
             message: error.message || 'Error occurred when retriving user information'
         })
     });
+}
+
+
+exports.getNextUser = (req, res) => {
+    const nobruserID = req.body.nobruserID;
+    const remoteUser = req.body.remoteUser;
+    let excludedIDs = [nobruserID, remoteUser];
+
+    userDB.aggregate([
+        {
+            $match: {
+                _id: {$nin: excludedIDs.map((id)=> new mongoose.Types.ObjectId(id))},
+                active: "yes",
+                status: "0"
+            }
+        },
+        { $sample: {size : 1} }
+    ])
+    .then((data) => {
+        res.send(data);
+    })
+    .catch((err) => {
+        res.status(500).send({
+            message: error.message || 'Error occurred when getting next user'
+        })
+    })
 }

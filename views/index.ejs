@@ -15,6 +15,28 @@
     <footer class="absolute -bottom-2 h-[8%] w-full bg-dark-mode-black font-light">
         <%- include('./components/footer', {variant2: true}); %>
     </footer>
+    <script src="/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script>
+        window.addEventListener('beforeunload', function(event){
+            $.ajax({
+                url: `/leaving-user-update/${username}`,
+                type: 'PUT',
+                success: function(response){
+                console.log(response);
+                }
+            })
+        })
+        $.ajax({
+            url: `/leaving-user-update/${username}`,
+            type: 'PUT',
+            success: function(response){
+            console.log(response);
+            }
+        })
+
+    </script>
 </body>
 </html>
-<script src="/js/main.js"></script>
+
+

@@ -152,13 +152,14 @@ const createPeerConnection = async () => {
 
 const lastChild = document.querySelector('#chat-text-area').lastElementChild
 function sendData(data){
-    const newElement = document.createElement("div");
-    newElement.className = "w-full flex justify-end text-white";
-    newElement.innerHTML = `
-        <div class="w-fit bg-purple-400 my-1 p-2 rounded-sm max-w-[75%]">
-            ${data}
-        </div>
-    `;
+  const newElement = document.createElement("div");
+  newElement.className = "w-full flex justify-end text-white overflow-auto";
+  newElement.innerHTML = `
+      <div class="bg-purple-400 my-1 p-2 rounded-sm max-w-[75%]" style="overflow: auto;">
+          ${data}
+      </div>
+  `;
+  
     ChatTextArea.insertBefore(newElement, lastChild);
     scrollElementIntoView();
 
@@ -181,9 +182,9 @@ function receiveChannelCallback(event){
 function onReceiveChannelMessageCallback(event){
   console.log('Received Message');
   const newElement = document.createElement("div");
-    newElement.className = "w-full flex justify-start text-white";
+    newElement.className = "w-full flex justify-start text-white overflow-auto";
     newElement.innerHTML = `
-        <div class="w-fit bg-blue-400 my-1 p-2 rounded-sm max-w-[75%]">
+        <div class="bg-blue-400 my-1 p-2 rounded-sm max-w-[75%]" style="overflow: auto;">
             ${event.data}
         </div>
     `;
@@ -218,6 +219,24 @@ function onSendChannelStateChange(){
   }
 }
 
+function fetchNextUser(remoteUser){
+  $.post('http://localhost:3000/get-next-user',
+  {
+    nobruserID: nobruserID,
+    remoteUser: remoteUser
+  },
+    function(data){
+      console.log('Next User is: ', data);
+      if (data[0]){
+        if (data[0]._id == remoteUser || data[0]._id == username){
+        }else{
+          remoteUser = data[0]._id
+        }
+        createOffer();
+      }
+    })
+}
+
 const createOffer = async () => {
   // Create RTC peer connections
   createPeerConnection();
@@ -248,6 +267,14 @@ const createAnswer = async (data) => {
     sender: data.remoteUser,
     receiver: data.username
   });
+
+  $ajax({
+    url: `/update-on-engagment/${username}`,
+    type: 'PUT',
+    success: function(response){
+
+    }
+  })
 };
 
 socket.on('receivedOffer', function (data) {
@@ -260,10 +287,29 @@ const addAnswer = async (data) => {
   if (!peerConnection.currentRemoteDescription) {
     peerConnection.setRemoteDescription(data.answer);
   }
+
+  // document.querySelector('#nextChat').
+  $ajax({
+    url: `/update-on-engagment/${username}`,
+    type: 'PUT',
+    success: function(response){
+      
+    }
+  })
 };
 socket.on('receivedAnswer', function (data) {
   // Receive answer from user-2
   addAnswer(data);
+});
+
+socket.on('closedRemoteUser', function (data) {
+  $.ajax({
+    url: `/update-on-next/${username}`,
+    type: 'PUT',
+    success: function(response){
+      fetchNextUser(remoteUser);
+    }
+  })
 });
 
 socket.on('candidateReceiver', function (data) {
@@ -309,4 +355,31 @@ window.addEventListener('beforeunload', function(event){
       console.log(response);
     }
   })
+})
+
+async function closeConnection(){
+  await peerConnection.close();
+  await socket.emit('remoteUserClosed', {
+    username: username,
+    remoteUser: remoteUser
+  })
+  $.ajax({
+    url: `/update-on-next/${username}`,
+    type: 'PUT',
+    success: function(response){
+      fetchNextUser(remoteUser);
+    }
+  })
+}
+
+
+document.querySelector('#nextChat').addEventListener('click', function(){
+  document.querySelector('#chat-text-area').innerHTML = '';
+  if (peerConnection.connectionState === "connected" || peerConnection.iceCandidateState === 'connected'){
+    closeConnection();
+    console.log('user closed');
+  }else{
+    fetchNextUser(remoteUser);
+    console.log('Moving to next user');
+  }
 })
