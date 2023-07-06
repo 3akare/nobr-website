@@ -24,7 +24,6 @@ app.use('/font', express.static(path.resolve(__dirname, 'assets/font')));
 
 app.use('/', require('./server/routes/router'));
 
-async function main(){
 
 const server = app.listen(PORT, () => {
   console.log(`Connected on PORT ${PORT}`);
@@ -110,7 +109,3 @@ io.on("connection", (socket) => {
     }
   });
 });
-
-}
-
-main();
